@@ -29,6 +29,10 @@ gem 'haml-rails'
 # Manage sensible information
 gem 'dotenv-rails'
 
+# User
+gem 'authlogic', '~> 3.4.6'
+gem 'omniauth-github', '~> 1.1.2'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

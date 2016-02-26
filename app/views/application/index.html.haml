@@ -2,3 +2,8 @@
   snada
 %h2
   my personal website.
+
+-unless current_user
+  =link_to "Github Login", '/auth/github'
+-else
+  =link_to "Logout", logout_path
