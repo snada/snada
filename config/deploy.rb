@@ -34,6 +34,10 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml', '.env')
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
+set :nvm_type, :user
+set :nvm_node, 'v4.4.7'
+set :nvm_map_bins, %w{node npm}
+
 # Default value for keep_releases is 5
 set :keep_releases, 3
 
