@@ -1,0 +1,18 @@
+%table.table
+  - @posts.each do |post|
+    %tr
+      %td= post.title
+      %td= link_to 'Show', post
+
+      %td= link_to 'Edit', edit_post_path(post)
+
+      %td= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%br
+
+= link_to 'New Post', new_post_path
+
+%div
+  -unless current_user
+    =link_to "Github Login", '/auth/github'
+  -else
+    =link_to "Logout", logout_path

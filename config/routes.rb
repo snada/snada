@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
+  resources :posts
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'application#index'
+  root 'posts#index'
 
   get 'logout' => 'user_sessions#destroy'
   resource :user_sessions, only: [:create]
   get '/auth/:provider/callback', to: 'user_sessions#create'
+
+  resources :posts
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

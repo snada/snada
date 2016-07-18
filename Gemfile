@@ -33,6 +33,9 @@ gem 'dotenv-rails'
 gem 'authlogic', '~> 3.4.6'
 gem 'omniauth-github', '~> 1.1.2'
 
+# SEO
+gem 'friendly_id', '~> 5.1.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

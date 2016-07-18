@@ -1,0 +1,22 @@
+= form_for @post do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+      %ul
+        - @post.errors.full_messages.each do |msg|
+          %li= msg
+  %div
+    =f.label(:title)
+    =f.text_field :title, class: 'form-control'
+  %div
+    =f.label(:description)
+    =f.text_field :description, class: 'form-control'
+  %div
+    =f.label(:keywords)
+    =f.text_field :keywords, class: 'form-control'
+  %div
+    =f.label(:body)
+    =f.text_area :body, class: 'form-control'
+
+  .actions
+    = f.submit 'Save', class: 'btn btn-info'
