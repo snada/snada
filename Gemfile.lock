@@ -53,6 +53,8 @@ GEM
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
+    capistrano-nvm (0.0.6)
+      capistrano (~> 3.1)
     capistrano-passenger (0.2.0)
       capistrano (~> 3.0)
     capistrano-rails (1.1.7)
@@ -280,6 +282,7 @@ DEPENDENCIES
   authlogic (~> 3.4.6)
   byebug
   capistrano (~> 3.4.0)
+  capistrano-nvm
   capistrano-passenger (~> 0.2.0)
   capistrano-rails (~> 1.1.6)
   capistrano-rvm
