@@ -5,4 +5,8 @@ class Post < ActiveRecord::Base
   validates :title, presence: true
   validates :description, presence: true
   validates :body, presence: true
+
+  def self.default_scope
+    order(created_at: :desc)
+  end
 end
