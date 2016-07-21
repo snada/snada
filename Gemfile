@@ -24,6 +24,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'haml-rails'
 
+# Post rendering
+gem 'nokogiri'
+gem 'redcarpet'
+gem 'pygments.rb'
+
 # Manage sensible information
 gem 'dotenv-rails'
 
