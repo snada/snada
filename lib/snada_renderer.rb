@@ -7,9 +7,7 @@ class SnadaRenderer < Redcarpet::Render::HTML
     doc = Nokogiri::HTML::DocumentFragment.parse('')
 
     Nokogiri::HTML::Builder.with(doc) do |_|
-      _.div(class: 'text-center') {
-        _.img(class: 'img-responsive', src: link, alt: content)
-      }
+      _.img(class: 'img-responsive center-block', src: link, alt: content)
     end
     return doc.to_html
   end

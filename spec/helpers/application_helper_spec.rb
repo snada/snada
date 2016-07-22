@@ -12,7 +12,7 @@ This will be a new paragraph though, and check this out:
 #this is a ruby codeblock!
 ```
 
-![pic](http:://internets.com/image.png)
+![pic](http://internets.com/image.png)
 END
     }
 
@@ -22,7 +22,7 @@ END
           text
         )
       ).to eq(
-        "<p>I&#39;m a line, but...<br>\nthis one should be in a new line, always in the same paragraph.</p>\n\n<p>This will be a new paragraph though, and check this out:</p>\n<div class=\"highlight\"><pre><span class=\"c1\">#this is a ruby codeblock!</span>\n</pre></div>\n<p><div class=\"text-center\"><img class=\"img-responsive\" src=\"http:://internets.com/image.png\" alt=\"pic\"></div></p>\n"
+        "<p>I&#39;m a line, but...<br>\nthis one should be in a new line, always in the same paragraph.</p>\n\n<p>This will be a new paragraph though, and check this out:</p>\n<div class=\"highlight\"><pre><span class=\"c1\">#this is a ruby codeblock!</span>\n</pre></div>\n<p><img class=\"img-responsive center-block\" src=\"http://internets.com/image.png\" alt=\"pic\"></p>\n"
       )
     end
   end

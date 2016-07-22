@@ -17,11 +17,11 @@ RSpec.describe SnadaRenderer do
   end
 
   context 'image' do
-    it 'should render a responsive image' do
+    it 'should render a responsive centered image' do
       expect(
         renderer.image('link', 'title', 'content')
       ).to eq(
-        "<div class=\"text-center\"><img class=\"img-responsive\" src=\"link\" alt=\"content\"></div>"
+        "<img class=\"img-responsive center-block\" src=\"link\" alt=\"content\">"
       )
     end
   end
