@@ -1,15 +1,14 @@
 %section#section2.page-title
   .row
     .col-md-12.big-title
+      %h2 snada.it
 .text-center
   %h3
-    All posts
+    Latest posts
 .blog-divider
 %section#section3.blog
   .content
     .container
+      =render 'posts/post_list'
       .text-center
-        -if current_user
-          =link_to 'New Post', new_post_path, class: 'btn btn-2'
-          .blog-divider
-      =render 'post_list'
+        =link_to 'All posts', posts_path, class: 'btn btn-2'

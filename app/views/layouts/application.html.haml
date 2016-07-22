@@ -1,12 +1,99 @@
 !!!
+/[if IE 8] <html class="ie ie8">
+/[if IE 9] <html class="ie ie9">
+/ [if gt IE 9]><!
 %html
+  / <![endif]
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
-    %title snada
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %meta{content: "text/html; charset=UTF-8", "httpequiv": "Content-Type"}/
+    %meta{charset: "utf-8"}/
+    %title
+      - if @post && !@post.new_record?
+        = "#{@post.title} | Stefano Nada | snada.it"
+      - else
+        = "Stefano Nada | snada.it"
+    - if @post
+      - content_description = @post.description
+    - else
+      - content_description = "Stefano Nada's website"
+    %meta{content: content_description, name: "description"}/
+    %meta{content: "Stefano Nada", name: "author"}/
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+
     = csrf_meta_tags
-  %body
-    .container
-      = yield
+
+    / Google Fonts
+    %link{href: "http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700", rel: "stylesheet", type: "text/css"}/
+    %link{href: "http://fonts.googleapis.com/css?family=Raleway:400,500,600,700", rel: "stylesheet", type: "text/css"}/
+    %link{href: "http://fonts.googleapis.com/css?family=Pacifico", rel: "stylesheet", type: "text/css"}/
+    %link{href: "http://fonts.googleapis.com/css?family=Tangerine", rel: "stylesheet", type: "text/css"}/
+
+    / Favicons
+    %link{href: "img/ico/favicon.ico", rel: "shortcut icon"}/
+    %link{href: "img/ico/apple-touch-icon.png", rel: "apple-touch-icon"}/
+    %link{href: "img/ico/apple-touch-icon-72.png", rel: "apple-touch-icon", sizes: "72x72"}/
+    %link{href: "img/ico/apple-touch-icon-114.png", rel: "apple-touch-icon", sizes: "114x114"}/
+    %link{href: "img/ico/apple-touch-icon-144.png", rel: "apple-touch-icon", sizes: "144x144"}/
+
+    %body{data: {spy: "scroll", target: "#navigation", offset: "75"}}
+      .wrap
+        %header#section1
+          #navigation
+            %nav.navbar.navbar-custom.cl-effect-21{role: "navigation"}
+              .container
+                .row
+                  .col-md-2.mob-logo
+                    .row
+                      .site-logo
+                        snada.it
+                  .col-md-10.mob-menu
+                    .row
+                      .navbar-header
+                        %button.navbar-toggle{"data-target": "#menu", "data-toggle": "collapse", type: "button"}
+                          %i.fa.fa-bars
+                      #menu.collapse.navbar-collapse
+                        %ul.nav.navbar-nav.navbar-right
+                          =navbar_item 'Home', root_path, class: 'external'
+                          =navbar_item 'Posts', posts_path, class: 'external'
+                          =navbar_item 'Resume', '#', class: 'external'
+                          =navbar_item 'Contact', '#', class: 'external'
+                          %li
+                            -unless current_user
+                              =link_to '/auth/github', class:'external' do
+                                %i.fa.fa-github
+                                Login
+                            -else
+                              %li.dropdown.nav-toggle
+                                %a.dropdown-toggle{"data-toggle": "dropdown", href: "#"}
+                                  .profile-navbar-pic
+                                    =image_tag current_user.github_avatar, class: 'img-circle', style: 'img-circle'
+                                  %b.caret
+                                %ul.dropdown-menu
+                                  %li
+                                    =link_to 'Profile', '#'
+                                  %li
+                                    =link_to 'Logout', logout_path
+        =yield
+        %footer.footer-wrap.text-center
+          .container
+            %ul.social.social-icons-footer-bottom
+              %li.facebook
+                %a{"data-toggle": "tooltip", href: "#", title: "Facebook"}
+                  %i.fa.fa-facebook
+              %li.twitter
+                %a{"data-toggle": "tooltip", href: "#", title: "Twitter"}
+                  %i.fa.fa-twitter
+              %li.linkedin
+                %a{"data-toggle": "tooltip", href: "#", title: "LinkedIn"}
+                  %i.fa.fa-linkedin
+            %p.site-info
+              .fa.fa-copyright
+              =Date.today.year
+              Stefano Nada
+
+      /Needs to be tested, still need to include respond
+      /[if lt IE 9]
+        = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js", 'respond'

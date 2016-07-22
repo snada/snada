@@ -1,0 +1,57 @@
+.row
+  .posts-block.col-lg-9.col-md-9.col-sm-8.col-xs-12
+    - @posts.each do |post|
+      %article.post.hentry
+        .post-content-wrap
+          %header.post-header
+            %h3.content-title
+              -if current_user
+                =link_to edit_post_path(post) do
+                  %i.fa.fa-pencil
+                =link_to post, method: :delete, data: { confirm: 'Are you sure?' } do
+                  %i.fa.fa-trash
+              =link_to post.title, post_path(post)
+            .blog-entry-meta
+              .blog-entry-meta-date
+                %i.fa.fa-clock-o
+                %span.blog-entry-meta-date-month
+                  =post.created_at.strftime('%b')
+                %span.blog-entry-meta-date-day
+                  =post.created_at.strftime('%d') + ','
+                %span.blog-entry-meta-date-year
+                  =post.created_at.strftime('%Y')
+              .blog-entry-meta-author
+                %i.fa.fa-user
+                %a.blog-entry-meta-author{:href => "#"}
+                  Stefano Nada
+              -# .blog-entry-meta-tags
+              -#   %i.fa.fa-tags
+              -#   = succeed "," do
+              -#     %a{:href => "#"} Web Design
+              -#   %a{:href => "#"} Branding
+              .blog-entry-meta-comments
+                %i.fa.fa-comments
+                .blog-entry-meta-comments
+                  3 comments
+          .post-content
+            %p
+              =post.description
+          %footer.post-footer
+            =link_to 'Read more', post_path(post), class: 'btn btn-2 btn-2c'
+        .clearfix
+      .blog-divider
+
+  .sidebar.col-lg-3.col-md-3.col-sm-4.col-xs-12
+    .widget.category
+      %h3.title Categories
+      %ul.category-list.slide
+        %li
+          %a{:href => "#"} Web Design
+        %li
+          %a{:href => "#"} Graphic Design
+        %li
+          %a{:href => "#"} Illustration
+        %li
+          %a{:href => "#"} Logo Design
+        %li
+          %a{:href => "#"} Wordpress Themes

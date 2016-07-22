@@ -10,6 +10,16 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
+ *= require animations
+ *= require bootstrap
+ *= require bootstrap-theme
+ *= require font-awesome
+ *= require hover
+ *= require team-member
+ *= require posts
+ *= require global
+ *= require syntax
+ *= require style
+ *= require blue
  */

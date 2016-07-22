@@ -1,13 +1,153 @@
-%p#notice= notice
-%article
-  %h1=@post.title
-  %h2=@post.description
-  %div
-    ="Written #{l @post.created_at, format: :short}"
-
-  %div=@post.body
-
-%div
-  = link_to 'Edit', edit_post_path(@post)
-  \|
-  = link_to 'Back', posts_path
+%section#section3.blog.single-post
+  .content
+    .container
+      .row
+        -if notice
+          #notice.alert.alert-info
+            =notice
+        .posts-block.col-lg-9.col-md-9.col-sm-8.col-xs-12.bottom-pad
+          %article.post.hentry
+            %header.post-header
+              %h3.content-title
+                -if current_user
+                  =link_to edit_post_path(@post) do
+                    %i.fa.fa-pencil
+                  =link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do
+                    %i.fa.fa-trash
+                =link_to @post.title, post_path(@post)
+              .blog-entry-meta
+                .blog-entry-meta-date
+                  %i.fa.fa-clock-o
+                  %span.blog-entry-meta-date-month
+                    =@post.created_at.strftime('%b')
+                  %span.blog-entry-meta-date-day
+                    =@post.created_at.strftime('%d') + ','
+                  %span.blog-entry-meta-date-year
+                    =@post.created_at.strftime('%Y')
+                .blog-entry-meta-author
+                  %i.fa.fa-user
+                  %a.blog-entry-meta-author{:href => "#"}
+                    Stefano Nada
+                .blog-entry-meta-tags
+                  %i.fa.fa-tags
+                  = succeed "," do
+                    %a{href: "#"} Web Design
+                  %a{href: "#"} Branding
+                .blog-entry-meta-comments
+                  %i.fa.fa-comments
+                  .blog-entry-meta-comments
+                    3 comments
+            .post-content
+              ~render_markdown @post.body
+          .blog-divider
+          / Comments Section Start
+          .comment-wrapper
+            %h3.title Comments
+            .clearfix
+            .comments-sec
+              %ol.commentlist
+                %li
+                  #1.comment
+                    .avatar
+                      =image_tag current_user.github_avatar if current_user
+                    .comment-des
+                      .arrow-comment
+                      .comment-by
+                        %strong
+                          =current_user.nickname
+                        %span.date July 30, 2013
+                        %span.reply
+                          %a{:href => "#"}
+                            %i.fa.fa-reply
+                            Reply
+                      %p
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    .clearfix
+                  %ol.childlist
+                    %li
+                      #3.comment
+                        .avatar
+                          =image_tag current_user.github_avatar if current_user
+                        .comment-des
+                          .arrow-comment
+                          .comment-by
+                            %strong
+                              =current_user.nickname
+                            %span.date July 30, 2013
+                            %span.reply
+                              %a{:href => "#"}
+                                %i.fa.fa-reply
+                                Reply
+                          %p
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        .clearfix
+                  .clearfix
+                %li
+                  #2.comment
+                    .avatar
+                      =image_tag current_user.github_avatar if current_user
+                    .comment-des
+                      .arrow-comment
+                      .comment-by
+                        %strong
+                          =current_user.nickname
+                        %span.date July 30, 2013
+                        %span.reply
+                          %a{:href => "#"}
+                            %i.fa.fa-reply
+                            Reply
+                      %p
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
+                    .clearfix
+                %li
+                  #4.comment
+                    .avatar
+                      =image_tag current_user.github_avatar if current_user
+                    .comment-des
+                      .arrow-comment
+                      .comment-by
+                        %strong
+                          =current_user.nickname
+                        %span.date July 30, 2013
+                        %span.reply
+                          %a{:href => "#"}
+                            %i.fa.fa-reply
+                            Reply
+                      %p
+                        Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                    .clearfix
+            .clearfix
+          / Comments Section End
+          .blog-divider
+          / Reply Section Start
+          .reply
+            %h3.title Leave a reply
+            %form#reply.reply
+              %fieldset
+                .row
+                  .col-lg-12.col-md-12.col-sm-12.col-xs-12
+                    %label
+                      Comment:
+                      %span *
+                    %textarea.form-control{:cols => "40", :required => "", :rows => "3"}
+              .text-center
+                %button.btn.btn-2.btn-2c{:type => "submit"}
+                  Post Reply
+              .clearfix
+          / /Reply Section
+        / /Post Block
+        / Sidebar Start
+        .sidebar.col-lg-3.col-md-3.col-sm-4.col-xs-12
+          .widget.category
+            %h3.title Categories
+            %ul.category-list.slide
+              %li
+                %a{:href => "#"} Web Design
+              %li
+                %a{:href => "#"} Graphic Design
+              %li
+                %a{:href => "#"} Illustration
+              %li
+                %a{:href => "#"} Logo Design
+              %li
+                %a{:href => "#"} Wordpress Themes

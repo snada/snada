@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user_session, :current_user
 
+  def index
+    @posts = Post.first(3)
+  end
+
   protected
   def require_authentication
     render(file: File.join(Rails.root, 'public/403.html'), status: 403, layout: false) unless current_user

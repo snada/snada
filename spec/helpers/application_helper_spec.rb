@@ -1,6 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe ApplicationHelper do
+  describe 'navbar_item' do
+    it 'should create a li with a link without active class' do
+      allow(self).to receive("current_page?").and_return(false)
+      expect(
+        navbar_item('Home', 'http://localhost:3000/whatever')
+      ).to eq(
+        "<li class=\"\"><a href=\"http://localhost:3000/whatever\">Home</a></li>"
+      )
+    end
+
+    it 'should create a li with a link with active class' do
+      allow(self).to receive("current_page?").and_return(true)
+      expect(
+        navbar_item('Home', 'http://localhost:3000/whatever')
+      ).to eq(
+        "<li class=\"active\"><a href=\"http://localhost:3000/whatever\">Home</a></li>"
+      )
+    end
+  end
+
   describe 'render_markdown' do
     let(:text) {<<END
 I'm a line, but...
