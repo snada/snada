@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def require_authentication
-    render(file: File.join(Rails.root, 'public/403.html'), status: 403, layout: false) unless current_user
+    render_forbidden unless current_user
   end
 
   def current_user_session
@@ -21,5 +21,13 @@ class ApplicationController < ActionController::Base
   def current_user
     return @current_user if @current_user
     @current_user = current_user_session && current_user_session.user
+  end
+
+  def render_forbidden
+    render(file: File.join(Rails.root, 'public/403.html'), status: :forbidden, layout: false)
+  end
+
+  def render_not_found
+    render(file: File.join(Rails.root, 'public/404.html'), status: :not_found, layout: false)
   end
 end

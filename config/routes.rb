@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   resources :posts
 
+  resources :categories, only: [:show]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

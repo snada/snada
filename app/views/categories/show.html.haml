@@ -1,0 +1,11 @@
+%section#section2.page-title
+  .row
+    .col-md-12.big-title
+.text-center
+  %h3
+    ="#{params[:id].titleize} posts"
+.blog-divider
+%section#section3.blog
+  .content
+    .container
+      =render 'posts/post_list'

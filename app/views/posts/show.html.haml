@@ -7,36 +7,7 @@
             =notice
         .posts-block.col-lg-9.col-md-9.col-sm-8.col-xs-12.bottom-pad
           %article.post.hentry
-            %header.post-header
-              %h3.content-title
-                -if current_user
-                  =link_to edit_post_path(@post) do
-                    %i.fa.fa-pencil
-                  =link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do
-                    %i.fa.fa-trash
-                =link_to @post.title, post_path(@post)
-              .blog-entry-meta
-                .blog-entry-meta-date
-                  %i.fa.fa-clock-o
-                  %span.blog-entry-meta-date-month
-                    =@post.created_at.strftime('%b')
-                  %span.blog-entry-meta-date-day
-                    =@post.created_at.strftime('%d') + ','
-                  %span.blog-entry-meta-date-year
-                    =@post.created_at.strftime('%Y')
-                .blog-entry-meta-author
-                  %i.fa.fa-user
-                  %a.blog-entry-meta-author{:href => "#"}
-                    Stefano Nada
-                .blog-entry-meta-tags
-                  %i.fa.fa-tags
-                  = succeed "," do
-                    %a{href: "#"} Web Design
-                  %a{href: "#"} Branding
-                .blog-entry-meta-comments
-                  %i.fa.fa-comments
-                  .blog-entry-meta-comments
-                    3 comments
+            =render partial: 'post_header', locals: {post: @post}
             .post-content
               ~render_markdown @post.body
           .blog-divider
@@ -57,7 +28,7 @@
                           =current_user.nickname
                         %span.date July 30, 2013
                         %span.reply
-                          %a{:href => "#"}
+                          %a{href: "#"}
                             %i.fa.fa-reply
                             Reply
                       %p
@@ -75,7 +46,7 @@
                               =current_user.nickname
                             %span.date July 30, 2013
                             %span.reply
-                              %a{:href => "#"}
+                              %a{href: "#"}
                                 %i.fa.fa-reply
                                 Reply
                           %p
@@ -93,7 +64,7 @@
                           =current_user.nickname
                         %span.date July 30, 2013
                         %span.reply
-                          %a{:href => "#"}
+                          %a{href: "#"}
                             %i.fa.fa-reply
                             Reply
                       %p
@@ -110,7 +81,7 @@
                           =current_user.nickname
                         %span.date July 30, 2013
                         %span.reply
-                          %a{:href => "#"}
+                          %a{href: "#"}
                             %i.fa.fa-reply
                             Reply
                       %p
@@ -129,9 +100,9 @@
                     %label
                       Comment:
                       %span *
-                    %textarea.form-control{:cols => "40", :required => "", :rows => "3"}
+                    %textarea.form-control{cols: "40", required: "", rows: "3"}
               .text-center
-                %button.btn.btn-2.btn-2c{:type => "submit"}
+                %button.btn.btn-2.btn-2c{type: "submit"}
                   Post Reply
               .clearfix
           / /Reply Section
@@ -140,14 +111,4 @@
         .sidebar.col-lg-3.col-md-3.col-sm-4.col-xs-12
           .widget.category
             %h3.title Categories
-            %ul.category-list.slide
-              %li
-                %a{:href => "#"} Web Design
-              %li
-                %a{:href => "#"} Graphic Design
-              %li
-                %a{:href => "#"} Illustration
-              %li
-                %a{:href => "#"} Logo Design
-              %li
-                %a{:href => "#"} Wordpress Themes
+            =categories_list

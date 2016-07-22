@@ -19,9 +19,11 @@
           =f.label(:keywords)
           =f.text_field :keywords, class: 'form-control'
         %div
+          =f.label(:category_list)
+          =f.text_field :category_list, class: 'form-control', value: @post.category_list.join(', ')
+        %div
           =f.label(:body)
           =f.text_area :body, class: 'form-control', cols: 40, rows: 10
-      =#.col-lg-2.col-md-2.col-sm-0.col-xs-0
     %hr
     .row.text-center
       .col-lg-2.col-md-2.col-sm-0.col-xs-0
