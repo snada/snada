@@ -32,6 +32,9 @@ gem 'pygments.rb'
 # Post categories
 gem 'acts-as-taggable-on', '~> 3.4'
 
+# Post comments
+gem 'disqus_rails'
+
 # Manage sensible information
 gem 'dotenv-rails'
 

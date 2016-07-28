@@ -22,6 +22,7 @@
 
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
+    = disqus_init
 
     = csrf_meta_tags
 
@@ -61,11 +62,7 @@
                           =navbar_item 'Resume', '#', class: 'external'
                           =navbar_item 'Contact', '#', class: 'external'
                           %li
-                            -unless current_user
-                              =link_to '/auth/github', class:'external' do
-                                %i.fa.fa-github
-                                Login
-                            -else
+                            -if current_user
                               %li.dropdown.nav-toggle
                                 %a.dropdown-toggle{"data-toggle": "dropdown", href: "#"}
                                   .profile-navbar-pic

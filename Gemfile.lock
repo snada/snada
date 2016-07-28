@@ -77,6 +77,8 @@ GEM
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
+    disqus_rails (0.0.6)
+      rails
     docile (1.1.5)
     dotenv (2.1.1)
     dotenv-rails (2.1.1)
@@ -293,6 +295,7 @@ DEPENDENCIES
   capistrano-rails (~> 1.1.6)
   capistrano-rvm
   coffee-rails (~> 4.1.0)
+  disqus_rails
   dotenv-rails
   factory_girl_rails
   friendly_id (~> 5.1.0)

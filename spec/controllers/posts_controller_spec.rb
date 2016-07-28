@@ -116,15 +116,15 @@ RSpec.describe PostsController, type: :controller do
 
   describe "DELETE #destroy" do
     it "destroys the requested post" do
-      post = Post.create! valid_attributes
+      p = FactoryGirl.create(:post)
       expect {
-        delete :destroy, {id: post.to_param}
-      }.to change(Post, :count).by(-1)
+        delete :destroy, {id: p.to_param}
+      }.to change{ Post.count }.by(-1)
     end
 
     it "redirects to the posts list" do
-      post = Post.create! valid_attributes
-      delete :destroy, {id: post.to_param}
+      p = FactoryGirl.create(:post)
+      delete :destroy, {id: p.to_param}
       expect(response).to redirect_to(posts_url)
     end
   end

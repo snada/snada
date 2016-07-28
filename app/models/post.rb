@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   friendly_id :title, use: [:slugged]
 
   acts_as_taggable_on :categories
+  acts_as_disqusable
 
   validates :title, presence: true
   validates :description, presence: true

@@ -6,6 +6,10 @@ RSpec.describe Post, type: :model do
   end
 
   context 'update' do
+
+  end
+
+  context 'scope' do
     
   end
 end
