@@ -27,6 +27,16 @@ RSpec.describe UserSessionsController, type: :controller do
         expect(response).to redirect_to(root_url)
         expect(User.find_by(github_uid: hash.uid)).not_to be(nil)
       end
+
+      it 'should create non-existing github users as normal users' do
+        hash = FactoryGirl.create(:github_hash)
+        controller.request.env['omniauth.auth'] = hash
+
+        expect(User.find_by(github_uid: hash.uid)).to be(nil)
+        post :create, provider: :github
+        expect(response).to redirect_to(root_url)
+        expect(User.find_by(github_uid: hash.uid).normal?).to be true
+      end
     end
 
     describe 'GET logout' do

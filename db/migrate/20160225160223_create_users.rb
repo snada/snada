@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :nickname
 
-      t.integer :role, default: nil
+      t.integer :role, default: 0, null: false
 
       #GitHub
       t.string :github_uid

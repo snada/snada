@@ -1,8 +1,9 @@
 %header.post-header
   %h3.content-title
-    -if current_user
+    -if can? :edit, post
       =link_to edit_post_path(post) do
         %i.fa.fa-pencil
+    -if can? :destroy, post
       =link_to post, method: :delete, data: { confirm: 'Are you sure?' } do
         %i.fa.fa-trash
     =link_to post.title, post_path(post)

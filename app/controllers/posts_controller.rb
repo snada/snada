@@ -6,17 +6,21 @@ class PostsController < ApplicationController
   end
 
   def show
+    authorize! :show, @post
   end
 
   def new
     @post = Post.new
+    authorize! :edit, @post
   end
 
   def edit
+    authorize! :edit, @post
   end
 
   def create
     @post = Post.create(post_params)
+    authorize! :create, @post
 
     if @post.save
       redirect_to @post, notice: 'Post was successfully created.'
@@ -26,6 +30,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    authorize! :update, @post
     if @post.update(post_params)
       redirect_to @post, notice: 'Post was successfully updated.'
     else
@@ -34,6 +39,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, @post
     @post.destroy
     redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end

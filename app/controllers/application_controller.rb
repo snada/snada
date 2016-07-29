@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
+  rescue_from CanCan::AccessDenied do |exception|
+    render_forbidden
+  end
+
   def require_authentication
     render_forbidden unless current_user
   end

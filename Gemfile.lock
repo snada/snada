@@ -48,6 +48,7 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (9.0.5)
+    cancancan (1.15.0)
     capistrano (3.4.1)
       i18n
       rake (>= 10.0.0)
@@ -289,6 +290,7 @@ DEPENDENCIES
   acts-as-taggable-on (~> 3.4)
   authlogic (~> 3.4.6)
   byebug
+  cancancan (~> 1.10)
   capistrano (~> 3.4.0)
   capistrano-nvm
   capistrano-passenger (~> 0.2.0)

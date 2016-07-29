@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
       render(file: File.join(Rails.root, 'public/403.html'), status: 403, layout: false) and return
     end
 
-    u = User.find_by(github_uid: auth.uid) || User.create(nickname: auth.info.nickname, github_uid: auth.uid, github_avatar: auth.info.image, github_url: auth.info.urls.GitHub)
+    u = User.find_by(github_uid: auth.uid) || User.create(nickname: auth.info.nickname, role: 0, github_uid: auth.uid, github_avatar: auth.info.image, github_url: auth.info.urls.GitHub)
 
     UserSession.create(u)
     redirect_to root_path

@@ -42,6 +42,9 @@ gem 'dotenv-rails'
 gem 'authlogic', '~> 3.4.6'
 gem 'omniauth-github', '~> 1.1.2'
 
+# User roles
+gem 'cancancan', '~> 1.10'
+
 # SEO
 gem 'friendly_id', '~> 5.1.0'
 
