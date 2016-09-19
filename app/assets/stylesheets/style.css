@@ -2098,6 +2098,11 @@ ol.commentlist, ol.commentlist li {
     padding: 12px 25px;
 }
 
+.btn-group .btn {
+    height: 55px;
+    padding: 6px 10px;
+}
+
 .blog-small .blog-entry-meta-author, .blog-small .blog-entry-meta-tags, .blog-small .blog-entry-meta-comments {
     font-size:11px;
 }

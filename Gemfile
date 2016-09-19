@@ -35,6 +35,9 @@ gem 'acts-as-taggable-on', '~> 3.4'
 # Post comments
 gem 'disqus_rails'
 
+# Pics upload
+gem "paperclip", "~> 5.0.0"
+
 # Manage sensible information
 gem 'dotenv-rails'
 

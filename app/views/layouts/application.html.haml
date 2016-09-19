@@ -59,6 +59,7 @@
                         %ul.nav.navbar-nav.navbar-right
                           =navbar_item 'Home', root_path, class: 'external'
                           =navbar_item 'Posts', posts_path, class: 'external'
+                          =navbar_item 'Pics', pics_path, class: 'external' if can? :manage, Pic
                           =navbar_item 'Resume', '#', class: 'external'
                           =navbar_item 'Contact', '#', class: 'external'
                           %li
@@ -88,7 +89,7 @@
               .fa.fa-copyright
               =Date.today.year
               Stefano Nada
-
+        = javascript_include_tag "initializers/clipboard"
       /Needs to be tested, still need to include respond
       /[if lt IE 9]
         = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js", 'respond'

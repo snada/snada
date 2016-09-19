@@ -1,0 +1,14 @@
+= form_for @pic, html: { multipart: true } do |f|
+  - if @pic.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@pic.errors.count, "error")} prohibited this post from being saved:"
+      %ul
+        - @pic.errors.full_messages.each do |msg|
+          %li= msg
+  =f.file_field :upload
+  %hr
+  .row.text-center
+    .col-lg-2.col-md-2.col-sm-0.col-xs-0
+    .col-lg-8.col-md-8.col-sm-12.col-xs-12
+      .actions
+        =f.submit 'Save', class: 'btn btn-2 btn-2c'

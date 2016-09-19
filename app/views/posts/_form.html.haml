@@ -6,29 +6,22 @@
         - @post.errors.full_messages.each do |msg|
           %li= msg
   %fieldset
-    .row
-      .col-lg-2.col-md-2.col-sm-0.col-xs-0
-      .col-lg-8.col-md-8.col-sm-12.col-xs-12
-        %div
-          =f.label(:title)
-          =f.text_field :title, class: 'form-control'
-        %div
-          =f.label(:description)
-          =f.text_field :description, class: 'form-control'
-        %div
-          =f.label(:keywords)
-          =f.text_field :keywords, class: 'form-control'
-        %div
-          =f.label(:category_list)
-          =f.text_field :category_list, class: 'form-control', value: @post.category_list.join(', ')
-        %div
-          =f.label(:body)
-          =f.text_area :body, class: 'form-control', cols: 40, rows: 10
+    %div
+      =f.label(:title)
+      =f.text_field :title, class: 'form-control'
+    %div
+      =f.label(:description)
+      =f.text_field :description, class: 'form-control'
+    %div
+      =f.label(:keywords)
+      =f.text_field :keywords, class: 'form-control'
+    %div
+      =f.label(:category_list)
+      =f.text_field :category_list, class: 'form-control', value: @post.category_list.join(', ')
+    %div
+      =f.label(:body)
+      =f.text_area :body, class: 'form-control', cols: 40, rows: 10
     %hr
-    .row.text-center
-      .col-lg-2.col-md-2.col-sm-0.col-xs-0
-      .col-lg-8.col-md-8.col-sm-12.col-xs-12
-        .actions
-          =f.submit 'Save', class: 'btn btn-2 btn-2c'
-      .col-lg-2.col-md-2.col-sm-0.col-xs-0
-  .clearfix
+    .text-center
+      .actions
+        =f.submit 'Save', class: 'btn btn-2 btn-2c'

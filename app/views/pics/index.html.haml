@@ -1,0 +1,38 @@
+%section#section2.page-title
+  .row
+    .col-md-12.big-title
+.text-center
+  %h3
+    All pics
+.blog-divider
+%section#section3.blog
+  .content
+    .container
+      .text-center
+        =link_to 'New Pic', new_pic_path, class: 'btn btn-2'
+        .blog-divider
+      .row
+        .posts-block.col-lg-9.col-md-9.col-sm-8.col-xs-12
+          - @pics.each do |pic|
+            %article.post.hentry
+              .post-content-wrap
+                %header.post-header
+                  %h3.content-title
+                    -if can? :edit, pic
+                      =link_to edit_pic_path(pic) do
+                        %i.fa.fa-pencil
+                    -if can? :destroy, pic
+                      =link_to pic, method: :delete, data: { confirm: 'Are you sure?' } do
+                        %i.fa.fa-trash
+                    =link_to "Picture #{pic.id}", pic_path(pic)
+                .post-content
+                  %p
+                    =image_tag(pic.upload.url(:thumb))
+                %footer.post-footer
+                  =link_to 'Show', pic_path(pic), class: 'btn btn-2 btn-2c'
+              .clearfix
+            .blog-divider
+        .sidebar.col-lg-3.col-md-3.col-sm-4.col-xs-12
+          .widget.category
+            %h3.title Categories
+            =categories_list
