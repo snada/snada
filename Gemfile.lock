@@ -310,6 +310,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   disqus_rails
   dotenv-rails
+  execjs
   factory_girl_rails
   friendly_id (~> 5.1.0)
   haml-rails
@@ -327,7 +328,7 @@ DEPENDENCIES
   rails (= 4.2.5.1)
   redcarpet
   rspec-rails (~> 3.0)
-  sass-rails (~> 5.0)
+  sass-rails (~> 5.0, >= 5.0.6)
   sdoc (~> 0.4.0)
   simplecov
   spring
