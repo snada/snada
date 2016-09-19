@@ -8,6 +8,7 @@ class Ability
     else
       can :read, Post
       can :create, UserSession
+      cannot :manage, Pic
     end
   end
 end

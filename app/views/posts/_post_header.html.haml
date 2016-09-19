@@ -16,10 +16,6 @@
         =post.created_at.strftime('%d') + ','
       %span.blog-entry-meta-date-year
         =post.created_at.strftime('%Y')
-    .blog-entry-meta-author
-      %i.fa.fa-user
-      .blog-entry-meta-author
-        Stefano Nada
     .blog-entry-meta-tags
       %i.fa.fa-tags
       =post_header_categories_links(post)

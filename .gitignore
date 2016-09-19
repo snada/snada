@@ -23,3 +23,6 @@ vendor/assets/components
 
 # Tests coverage
 coverage
+
+# Uploaded pics
+public/system/pics/uploads/*

@@ -25,6 +25,7 @@
   ],
   "dependencies": {
     "bootstrap": "~3.3.6",
-    "fontawesome": "4.6.3"
+    "fontawesome": "4.6.3",
+    "clipboard": "^1.5.12"
   }
 }
