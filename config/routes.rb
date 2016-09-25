@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resource :user_sessions, only: [:create]
   resources :posts
   resources :categories, only: [:show]
+  resources :contacts, only: [:new, :create]
 end
