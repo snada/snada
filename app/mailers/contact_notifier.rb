@@ -1,13 +1,11 @@
 class ContactNotifier < ApplicationMailer
-  def contact_mail(subject, from, body)
-    @subject = subject
-    @from = from.blank? ? ENV['PERSONAL_MAIL'] : from
-    @body = body
+  def contact_mail(contact)
+    @contact = contact
 
     mail(
       to: ENV['PERSONAL_MAIL'],
-      from: @from,
-      subject: "[SNADA CONTACT FORM] #{subject}"
+      from: @contact.from,
+      subject: "[SNADA CONTACT FORM] #{@contact.subject}"
     )
   end
 end
