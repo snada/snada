@@ -1,0 +1,11 @@
+- @posts.each do |post|
+  %article.post.hentry
+    .post-content-wrap
+      =render partial: 'posts/post_header', locals: { post: post }
+      .post-content
+        %p
+          =post.description
+      %footer.post-footer
+        =link_to 'Read more', post_path(post), class: 'btn btn-2 btn-2c'
+    .clearfix
+  .blog-divider

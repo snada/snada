@@ -1,0 +1,31 @@
+{
+  "name": "snada",
+  "homepage": "https://github.com/snada/snada",
+  "authors": [
+    "snada <stefano.nada@gmail.com>"
+  ],
+  "description": "Personal website",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "snada",
+    "rails",
+    "ruby",
+    "development"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "fontawesome": "4.6.3",
+    "clipboard": "^1.5.12"
+  }
+}

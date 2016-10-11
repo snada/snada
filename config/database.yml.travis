@@ -1,0 +1,3 @@
+test:
+  adapter: postgresql
+  database: snada_test

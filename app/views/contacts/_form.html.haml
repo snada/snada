@@ -1,0 +1,24 @@
+= form_for @contact do |f|
+  - if @contact.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@contact.errors.count, "error")} prohibited this message from being sent:"
+      %ul
+        - @contact.errors.full_messages.each do |msg|
+          %li= msg
+  %fieldset
+    %div
+      =f.label(:subject)
+      =f.text_field :subject, class: 'form-control'
+    %div
+      =f.label(:from)
+      =f.text_field :from, class: 'form-control'
+    %div
+      =f.label(:body)
+      =f.text_area :body, class: 'form-control', cols: 40, rows: 10
+    %div{style: 'text-align: center'}
+      %div{style: 'display: inline-block; margin: 10px; padding: 10px;'}
+        =recaptcha_tags
+    %hr
+    .text-center
+      .actions
+        =f.submit 'Send', class: 'btn btn-2 btn-2c'

@@ -1,0 +1,18 @@
+%section#section3.blog.single-post
+  .content
+    .container
+      .row
+        -if notice
+          #notice.alert.alert-info
+            =notice
+        .posts-block.col-lg-9.col-md-9.col-sm-8.col-xs-12.bottom-pad
+          %article.post.hentry
+            =render partial: 'post_header', locals: {post: @post}
+            .post-content
+              ~render_markdown @post.body
+          .blog-divider
+          - disqus_thread @post.slug, @post.title
+        .sidebar.col-lg-3.col-md-3.col-sm-4.col-xs-12
+          .widget.category
+            %h3.title Categories
+            =categories_list
