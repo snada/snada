@@ -61,7 +61,7 @@
                           =navbar_item 'Home', root_path, class: 'external'
                           =navbar_item 'Posts', posts_path, class: 'external'
                           =navbar_item 'Pics', pics_path, class: 'external' if can? :manage, Pic
-                          =navbar_item 'Resume', '#', class: 'external'
+                          =navbar_item 'About', about_path, class: 'external'
                           =navbar_item 'Contact', new_contact_path, class: 'external'
                           %li
                             -if current_user
