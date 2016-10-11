@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     @posts = Post.first(3)
   end
 
+  def about
+    @snada = User.first
+  end
+
   protected
 
   rescue_from CanCan::AccessDenied do |exception|

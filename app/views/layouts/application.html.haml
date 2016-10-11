@@ -61,7 +61,7 @@
                           =navbar_item 'Home', root_path, class: 'external'
                           =navbar_item 'Posts', posts_path, class: 'external'
                           =navbar_item 'Pics', pics_path, class: 'external' if can? :manage, Pic
-                          =navbar_item 'Resume', '#', class: 'external'
+                          =navbar_item 'About', about_path, class: 'external'
                           =navbar_item 'Contact', new_contact_path, class: 'external'
                           %li
                             -if current_user
@@ -86,6 +86,9 @@
               %li.linkedin
                 %a{"data-toggle": "tooltip", href: "https://linkedin.com/in/snada/en", title: "LinkedIn"}
                   %i.fa.fa-linkedin
+              %li.linkedin
+                %a{"data-toggle": "tooltip", href: "https://github.com/snada", title: "GitHub"}
+                  %i.fa.fa-github
             %p.site-info
               .fa.fa-copyright
               =Date.today.year
