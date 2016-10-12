@@ -1,0 +1,27 @@
+{
+  "name": "snada",
+  "version": "1.0.0",
+  "description": "Stefano Nada's personal blog",
+  "main": "index.js",
+  "dependencies": {
+    "bower": "^1.7.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snada/snada.git"
+  },
+  "keywords": [
+    "snada",
+    "blog"
+  ],
+  "author": "snada",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/snada/snada/issues"
+  },
+  "homepage": "https://github.com/snada/snada#readme"
+}
