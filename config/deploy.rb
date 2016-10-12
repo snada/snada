@@ -39,18 +39,18 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml', '.env')
 
 set :nvm_type, :user
 set :nvm_node, 'v4.4.7'
-set :nvm_map_bins, %w{node npm}
-set :nvm_custom_path, "$HOME/.nvm/versions/node"
+set :nvm_map_bins, %w{node npm bower}
+#set :nvm_custom_path, "$HOME/.nvm/versions/node"
 
 # Default value for keep_releases is 5
 set :keep_releases, 3
 
 namespace :deploy do
-  after :restart, :clear_cache do
+  before :compile_assets, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       within release_path do
-        execute :nvm, "exec npm install"
-        execute :nvm, "exec node_modules/bower/bin/bower install"
+        execute :npm, "install"
+        execute :bower, "install"
       end
     end
   end
