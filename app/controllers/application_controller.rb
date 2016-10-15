@@ -9,6 +9,9 @@ class ApplicationController < ActionController::Base
   end
 
   def about
+    @page_title = 'About'
+    @page_description = "Stefano Nada's about page"
+    @page_keywords = "about, info"
     @snada = User.first
   end
 
