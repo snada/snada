@@ -15,5 +15,9 @@ Launch this when necessary: `deploy:sitemap:refresh`
 
 ## Releases
 
-### 1.0.0
+### 1.0.6
+ - Fixing logo, about page
+ - Sitemap support
+
+### 1.0.0 - 1.0.5
  - First release!
