@@ -1,5 +1,8 @@
 class ContactsController < ApplicationController
   def new
+    @page_title = "Contact"
+    @page_description = "Stefano Nada contact"
+    @page_keyords = "contact, email"
     @contact = Contact.new
   end
 

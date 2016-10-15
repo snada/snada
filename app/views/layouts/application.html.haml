@@ -8,15 +8,9 @@
     %meta{content: "text/html; charset=UTF-8", "httpequiv": "Content-Type"}/
     %meta{charset: "utf-8"}/
     %title
-      - if @post && !@post.new_record?
-        = "#{@post.title} | Stefano Nada | snada.it"
-      - else
-        = "Stefano Nada | snada.it"
-    - if @post
-      - content_description = @post.description
-    - else
-      - content_description = "Stefano Nada's website"
-    %meta{content: content_description, name: "description"}/
+      = page_title
+    %meta{content: page_description, name: "description"}/
+    %meta{content: page_keywords, name: "keywords"}/
     %meta{content: "Stefano Nada", name: "author"}/
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
 
