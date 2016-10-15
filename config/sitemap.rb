@@ -25,9 +25,9 @@ SitemapGenerator::Sitemap.create do
     add post_path(post), lastmod: post.updated_at, priority: 0.7
   end
 
+  add posts_path, priority: 0.5
+
   add about_path, priority: 0.5
 
   add new_contact_path, priority: 0.5
-
-  add posts_path, priority: 0.5
 end
