@@ -2,6 +2,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
+    @page_title = "Posts"
+    @page_description = "Stefano Nada's posts index"
     @posts = Post.all
   end
 
