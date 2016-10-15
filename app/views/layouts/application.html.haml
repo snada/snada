@@ -44,7 +44,11 @@
                     .row
                       .site-logo
                         =link_to root_path do
-                          =image_tag User.first.github_avatar, class: 'img-circle', width: 50, height: 50, alt: "stefano nada's avatar"
+                          -snada = User.first
+                          -if User.first
+                            =image_tag snada.github_avatar, class: 'img-circle', width: 50, height: 50, alt: "Stefano Nada's avatar"
+                          -else
+                            =image_tag 'snada.png', alt: "Stefano Nada's logo"
                   .col-md-10.mob-menu
                     .row
                       .navbar-header

@@ -9,6 +9,10 @@ This is my personal website and blog, hosted [here](http://snada.it).
 - Rspec
 - Redcarpet & pygments code styling
 
+## Commands
+
+Launch this when necessary: `deploy:sitemap:refresh`
+
 ## Releases
 
 ### 1.0.0

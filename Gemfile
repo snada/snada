@@ -50,6 +50,7 @@ gem 'cancancan', '~> 1.10'
 
 # SEO
 gem 'friendly_id', '~> 5.1.0'
+gem 'sitemap_generator'
 
 # Recaptcha
 gem "recaptcha", require: "recaptcha/rails"
