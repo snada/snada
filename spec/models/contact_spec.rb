@@ -11,11 +11,11 @@ RSpec.describe Contact, type: :model do
     end
 
     it "should be valid when email is ok" do
-      contact.should be_valid
+      expect(contact).to be_valid
     end
 
     it "should not be valid when email is ko" do
-      invalid_mail_contact.should_not be_valid
+      expect(invalid_mail_contact).not_to be_valid
     end
   end
 end
