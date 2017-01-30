@@ -15,7 +15,7 @@ Launch this when necessary: `deploy:sitemap:refresh`
 
 ## Releases
 
-### 1.0.8 - 1.0.9
+### 1.0.8 - 1.0.9 - 1.0.10
  - Rails update
  - Code climate support
 
