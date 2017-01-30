@@ -1,11 +1,18 @@
 language: ruby
 rvm:
-  - 2.2.3
+- 2.2.3
 services:
-  - postgresql
+- postgresql
 before_script:
-  - npm install -g bower
-  - bower install
-  - psql -c 'create database snada_test;' -U postgres
-  - cp config/database.yml.travis config/database.yml
-  - cp .env.example .env
+- npm install -g bower
+- bower install
+- psql -c 'create database snada_test;' -U postgres
+- cp config/database.yml.travis config/database.yml
+- cp .env.example .env
+addons:
+  code_climate:
+    repo_token:
+      secure: "UfjZQ2IJ9q8JLZ5/e/Axztq6rbtVAttYu/z48uwbn6TN+xnUUVdK1WLNmD2svq7UxMMcb4w4tD3G85QRdcfPAVEKyT5QNMvD4pYkynPckrBZq6MeuyxsxkEcHZkSSLkUH5pkss/kYPkIeBe+NAw+wGisIuDOx095N7ecVKU96pR+3k5/us8s9OYASguygpc33l8qwpBsjDBZ/Hjkrt3UzGCcKg6fjgTTZ/0POQ7jNld143ekgSq71XcaVa9sHEENczdu4w58UDmkiPDIxsks89W/nRa6VV91uU6rR9gP/IKRAIuVt4i63d8KovbR38b1kBuLLmB9X2Wt+FtiDOq5AI0dCBT6J6XKBLnWCc7hBYr/ceIrqOtlfFfKrJSIKGrh6ZUwXwJrcoDQCLMTjd7Gfc+D+AZL+3oeHRxw0DExXXRy2Rn2FuKqGb9rH1Xj52/aySPx3jcHxA3yw4FHnbJRBbIlAcEg4coLr9BzxnR49ShJ85tk02OY8XmUbsYG/QSyfTotMLSXJlCgr7V7C0QL7C470CfvdXOlOXfzlC3nlPxQqwdMTWIPi+MmreqpZ2qF9QJy6ATVINJNDqiu0Y4IdTKtu885ngc7X5NoiPwInY8RRUgYHV+ceM7aoX4YHjAAKNimOLHSWvu2ZQwQ8GvsHwHDWvvS0Sc6xZA/YPWG+HE="
+env:
+  global:
+    secure: hDKeRYZyZLOwTLxRtqskgB/txejKJCGOLikaKhoXZMtBX+uVXEexzWb4qMZtVy7wnL8bphYA8/RoGcImqrIYhy+PlxrYv20EI+6t7TZU/10W0KyW7OyEAvHns2+BJcuDlwzczn8yZgwWNRwMfPU7ntFQ8V3HXxj3woY9s92tbE8w9swH4mmKKmdAds7mHo/QGrp3J6UYqpvf3FrjOFmKUvZN4y55qA/ovTjNs60h+5b8vjXdOOlErwpAzr5EO0ZK5MMGsnjewvTBZQCOu2nC+4QYKCwuwjoufx/2beiQuJwS9+OQQWH70GaqqltE/3predDvoiwCTphUANuiSzYO0+NznfTK3yahhRz8xL4+SQ/DSTJQXDnrAkrvl2+aHea2pvGLnZahFpW65q8tm0wF8vw/wACxt1UeMbnghF+bxi0nm/Xzstl4iI5G86UKtJekuYe7TQX3woUZv/ZHgP7pkt1zJ0Ym7r6SkIC4utdzZPEA2dPydIR2v9uTyMb31yX7XLn6n49ppZ0g6PcfG5j9/OMX4eCBHA8GX5S568cjIvdR5a8lMCbUaR5bs+wX+IedE3VJ2H0G86mtNxq/TUOwEDG2z/K42HoOJ6SoMNgW7plmwVvMSecMTg7gfnuXJtwdrWlY00pD7diYL07vy0ubUccfcUj0kF/qvYuBgAlUtMY=
