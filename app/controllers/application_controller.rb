@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  rescue_from CanCan::AccessDenied do |exception|
+  rescue_from CanCan::AccessDenied do
     render_forbidden
   end
 
