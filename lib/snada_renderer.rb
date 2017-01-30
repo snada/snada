@@ -3,11 +3,11 @@ class SnadaRenderer < Redcarpet::Render::HTML
     Pygments.highlight(code, lexer: language)
   end
 
-  def image(link, title, content)
+  def image(link, _title, content)
     doc = Nokogiri::HTML::DocumentFragment.parse('')
 
-    Nokogiri::HTML::Builder.with(doc) do |_|
-      _.img(class: 'img-responsive center-block', src: link, alt: content)
+    Nokogiri::HTML::Builder.with(doc) do |i|
+      i.img(class: 'img-responsive center-block', src: link, alt: content)
     end
     return doc.to_html
   end
