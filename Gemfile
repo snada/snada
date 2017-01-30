@@ -88,4 +88,5 @@ end
 group :test do
   gem 'simplecov'
   gem 'factory_girl_rails'
+  gem "codeclimate-test-reporter", "~> 1.0.0"
 end
