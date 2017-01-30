@@ -69,6 +69,8 @@ GEM
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
+    codeclimate-test-reporter (1.0.5)
+      simplecov
     coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -305,6 +307,7 @@ DEPENDENCIES
   capistrano-passenger (~> 0.2.0)
   capistrano-rails (~> 1.1.6)
   capistrano-rvm
+  codeclimate-test-reporter (~> 1.0.0)
   coffee-rails (~> 4.1.0)
   disqus_rails
   dotenv-rails
