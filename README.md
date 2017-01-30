@@ -1,6 +1,6 @@
 # Snada
 
-[![Build Status](https://travis-ci.org/snada/snada.svg?branch=master)](https://travis-ci.org/snada/snada)
+[![Build Status](https://travis-ci.org/snada/snada.svg?branch=master)](https://travis-ci.org/snada/snada) [![Code Climate](https://codeclimate.com/github/snada/snada/badges/gpa.svg)](https://codeclimate.com/github/snada/snada) [![Test Coverage](https://codeclimate.com/github/snada/snada/badges/coverage.svg)](https://codeclimate.com/github/snada/snada/coverage) [![Issue Count](https://codeclimate.com/github/snada/snada/badges/issue_count.svg)](https://codeclimate.com/github/snada/snada)
 
 This is my personal website and blog, hosted [here](http://snada.it).
 
@@ -14,6 +14,10 @@ This is my personal website and blog, hosted [here](http://snada.it).
 Launch this when necessary: `deploy:sitemap:refresh`
 
 ## Releases
+
+### 1.0.8
+ - Rails update
+ - Code climate support
 
 ### 1.0.7
  - Increase pic size validation
