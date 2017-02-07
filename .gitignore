@@ -32,3 +32,6 @@ node_modules/*
 
 # Sitemap
 public/sitemap.xml
+
+# Uploaded pics
+public/system

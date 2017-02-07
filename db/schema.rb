@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20160729213915) do
 
   create_table "users", force: :cascade do |t|
     t.string   "nickname"
-    t.integer  "role"
+    t.integer  "role",                default: 0, null: false
     t.string   "github_uid"
     t.string   "github_avatar"
     t.string   "github_url"
