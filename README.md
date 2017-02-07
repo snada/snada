@@ -15,6 +15,9 @@ Launch this when necessary: `deploy:sitemap:refresh`
 
 ## Releases
 
+### 1.0.12
+ - Google search console
+
 ### 1.0.11
  - Public folder fix
 
