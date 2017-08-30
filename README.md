@@ -15,6 +15,9 @@ Launch this when necessary: `deploy:sitemap:refresh`
 
 ## Releases
 
+### 1.0.13
+- Updating gems
+
 ### 1.0.12
  - Google search console
 
