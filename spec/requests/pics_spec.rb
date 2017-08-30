@@ -148,9 +148,6 @@ RSpec.describe "Pics", type: :request do
     end
   end
 
-
-
-
   describe "DELETE /pic" do
     let(:valid_pic) {
       FactoryGirl.create(:pic)
