@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://snada.it"
+SitemapGenerator::Sitemap.default_host = "https://snada.it"
 SitemapGenerator::Sitemap.compress = false
 
 SitemapGenerator::Sitemap.create do
