@@ -33,7 +33,7 @@ gem 'pygments.rb'
 gem 'acts-as-taggable-on', '~> 3.4'
 
 # Post comments
-gem 'disqus_rails'
+gem 'disqus_rails', "0.0.6"
 
 # Pics upload
 gem "paperclip", "~> 5.0.0"
