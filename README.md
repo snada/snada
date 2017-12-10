@@ -15,6 +15,9 @@ Launch this when necessary: `deploy:sitemap:refresh`
 
 ## Releases
 
+### 1.0.16
+- Updating Rails and gems
+
 ### 1.0.15
 - Updating sitemap base url
 
