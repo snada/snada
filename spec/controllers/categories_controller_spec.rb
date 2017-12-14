@@ -6,7 +6,7 @@ RSpec.describe CategoriesController, type: :controller do
       fake = FactoryGirl.create(:post, category_list: 'fake')
       testing = FactoryGirl.create(:post, category_list: 'testing')
 
-      get :show, {id: 'testing'}
+      get :show, params: {id: 'testing'}
       expect(assigns(:posts)).to eq([testing])
     end
   end

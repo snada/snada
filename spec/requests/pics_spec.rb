@@ -142,7 +142,7 @@ RSpec.describe "Pics", type: :request do
     context "as admin user" do
       it "is reachable" do
         UserSession.create(FactoryGirl.create(:admin_user))
-        patch pic_path(valid_pic), pic: valid_attributes
+        patch pic_path(valid_pic), params: { pic: valid_attributes }
         expect(response).to have_http_status(:ok)
       end
     end

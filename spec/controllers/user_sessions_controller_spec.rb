@@ -14,7 +14,7 @@ RSpec.describe UserSessionsController, type: :controller do
 
       it 'should login existing github users and redirect to root' do
         controller.request.env['omniauth.auth'] = FactoryGirl.create(:github_hash, uid: user.github_uid, nickname: user.nickname)
-        post :create, provider: :github
+        post :create, params: { provider: :github }
         expect(response).to redirect_to(root_url)
       end
 
@@ -23,7 +23,7 @@ RSpec.describe UserSessionsController, type: :controller do
         controller.request.env['omniauth.auth'] = hash
 
         expect(User.find_by(github_uid: hash.uid)).to be(nil)
-        post :create, provider: :github
+        post :create, params: { provider: :github }
         expect(response).to redirect_to(root_url)
         expect(User.find_by(github_uid: hash.uid)).not_to be(nil)
       end
@@ -33,7 +33,7 @@ RSpec.describe UserSessionsController, type: :controller do
         controller.request.env['omniauth.auth'] = hash
 
         expect(User.find_by(github_uid: hash.uid)).to be(nil)
-        post :create, provider: :github
+        post :create, params: { provider: :github }
         expect(response).to redirect_to(root_url)
         expect(User.find_by(github_uid: hash.uid).normal?).to be true
       end

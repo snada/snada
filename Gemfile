@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.10'
+gem 'rails', '>= 5.0.0', '< 5.1'
 # Use sqlite3 as the database for Active Record
-gem 'pg', '~> 0.18'
+gem 'pg', '~> 0.21'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 # Use Uglifier as compressor for JavaScript assets
@@ -30,20 +30,20 @@ gem 'redcarpet'
 gem 'pygments.rb'
 
 # Post categories
-gem 'acts-as-taggable-on', '~> 3.4'
+gem 'acts-as-taggable-on', '~> 4.0.0'
 
 # Post comments
-gem 'disqus_rails', "0.0.6"
+gem 'disqus_rails', '0.0.6'
 
 # Pics upload
-gem "paperclip", "~> 5.0.0"
+gem 'paperclip', '~> 5.1.0'
 
 # Manage sensible information
 gem 'dotenv-rails'
 
 # User
-gem 'authlogic', '~> 3.4.6'
-gem 'omniauth-github', '~> 1.1.2'
+gem 'authlogic', '~> 3.6.1'
+gem 'omniauth-github', '~> 1.3.0'
 
 # User roles
 gem 'cancancan', '~> 1.10'
@@ -53,7 +53,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'sitemap_generator'
 
 # Recaptcha
-gem "recaptcha", require: "recaptcha/rails"
+gem 'recaptcha', require: 'recaptcha/rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -71,9 +71,9 @@ gem 'capistrano-nvm'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem "pry"
-  gem "pry-byebug"
-  gem "pry-rails"
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'rspec-rails', '~> 3.0'
 end
 
@@ -88,5 +88,6 @@ end
 group :test do
   gem 'simplecov'
   gem 'factory_girl_rails'
-  gem "codeclimate-test-reporter", "~> 1.0.0"
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
+  gem 'rails-controller-testing'
 end
