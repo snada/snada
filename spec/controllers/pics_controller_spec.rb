@@ -8,7 +8,7 @@ RSpec.describe PicsController, type: :controller do
   end
 
   let(:valid_pic) {
-    FactoryGirl.create(:pic)
+    FactoryBot.create(:pic)
   }
 
   let(:valid_attributes) {
@@ -29,7 +29,7 @@ RSpec.describe PicsController, type: :controller do
 
     context 'as a normal user' do
       it 'should be forbidden' do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         get :index
         expect(response).to have_http_status(:forbidden)
       end
@@ -37,7 +37,7 @@ RSpec.describe PicsController, type: :controller do
 
     context "as admin user" do
       before(:each) do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
       end
 
       it "assigns all pics as @pics" do
@@ -57,7 +57,7 @@ RSpec.describe PicsController, type: :controller do
 
     context "as a normal user" do
       it "should be forbidden" do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         get :show, params: { id: valid_pic.to_param }
         expect(response).to have_http_status(:forbidden)
       end
@@ -65,7 +65,7 @@ RSpec.describe PicsController, type: :controller do
 
     context "as admin user" do
       it "assigns the pic as @pic" do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
         get :show, params: { id: valid_pic.to_param }
         expect(assigns(:pic)).to eq(valid_pic)
       end
@@ -82,7 +82,7 @@ RSpec.describe PicsController, type: :controller do
 
     context "as a normal user" do
       it "should be forbidden" do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         get :new
         expect(response).to have_http_status(:forbidden)
       end
@@ -90,7 +90,7 @@ RSpec.describe PicsController, type: :controller do
 
     context "as an admin user" do
       it "assigns a new pic as @pic" do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
         get :new
         expect(assigns(:pic)).to be_a_new(Pic)
       end
@@ -107,7 +107,7 @@ RSpec.describe PicsController, type: :controller do
 
     context 'as normal user' do
       it 'should be forbidden' do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         post :create, params: { pic: valid_attributes }
         expect(response).to have_http_status(:forbidden)
       end
@@ -115,7 +115,7 @@ RSpec.describe PicsController, type: :controller do
 
     context 'as admin user' do
       before(:each) do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
       end
 
       context 'with valid params' do
@@ -161,7 +161,7 @@ RSpec.describe PicsController, type: :controller do
 
     context 'as normal user' do
       it 'should be forbidden' do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         patch :update, params: { id: valid_pic.id, pic: valid_attributes }
         expect(response).to have_http_status(:forbidden)
       end
@@ -169,7 +169,7 @@ RSpec.describe PicsController, type: :controller do
 
     context 'as admin user' do
       before(:each) do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
       end
 
       context 'with valid params' do
@@ -218,7 +218,7 @@ RSpec.describe PicsController, type: :controller do
 
     context 'as normal user' do
       it 'should be forbidden' do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         delete :destroy, params: { id: valid_pic.id, pic: valid_attributes }
         expect(response).to have_http_status(:forbidden)
       end
@@ -226,7 +226,7 @@ RSpec.describe PicsController, type: :controller do
 
     context 'as admin user' do
       before(:each) do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
       end
 
       it 'destroys the requested pic' do

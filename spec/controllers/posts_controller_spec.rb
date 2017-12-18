@@ -8,7 +8,7 @@ RSpec.describe PostsController, type: :controller do
   end
 
   let(:valid_post) {
-    FactoryGirl.create(:post)
+    FactoryBot.create(:post)
   }
 
   let(:valid_attributes) {
@@ -59,7 +59,7 @@ RSpec.describe PostsController, type: :controller do
 
     context 'as normal user' do
       it 'should be forbidden' do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         get :new
         expect(response).to have_http_status(:forbidden)
       end
@@ -67,7 +67,7 @@ RSpec.describe PostsController, type: :controller do
 
     context 'as admin user' do
       it 'assigns a new post as @post' do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
         get :new
         expect(assigns(:post)).to be_a_new(Post)
       end
@@ -84,7 +84,7 @@ RSpec.describe PostsController, type: :controller do
 
     context 'as normal user' do
       it 'should be forbidden' do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         get :edit, params: {id: valid_post.to_param}
         expect(response).to have_http_status(:forbidden)
       end
@@ -92,7 +92,7 @@ RSpec.describe PostsController, type: :controller do
 
     context 'as admin user' do
       it 'assigns the requested post as @post' do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
         get :edit, params: {id: valid_post.to_param}
         expect(assigns(:post)).to eq(valid_post)
       end
@@ -109,7 +109,7 @@ RSpec.describe PostsController, type: :controller do
 
     context 'as normal user' do
       it 'should be forbidden' do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         post :create, params: { post: valid_attributes }
         expect(response).to have_http_status(:forbidden)
       end
@@ -117,7 +117,7 @@ RSpec.describe PostsController, type: :controller do
 
     context 'as admin user' do
       before(:each) do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
       end
 
       context 'with valid params' do
@@ -163,7 +163,7 @@ RSpec.describe PostsController, type: :controller do
 
     context 'as normal user' do
       it 'should be forbidden' do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         patch :update, params: { id: valid_post.id, post: valid_attributes }
         expect(response).to have_http_status(:forbidden)
       end
@@ -171,7 +171,7 @@ RSpec.describe PostsController, type: :controller do
 
     context 'as admin user' do
       before(:each) do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
       end
 
       context 'with valid params' do
@@ -224,7 +224,7 @@ RSpec.describe PostsController, type: :controller do
 
     context 'as normal user' do
       it 'should be forbidden' do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         delete :destroy, params: { id: valid_post.id, post: valid_attributes }
         expect(response).to have_http_status(:forbidden)
       end
@@ -232,18 +232,18 @@ RSpec.describe PostsController, type: :controller do
 
     context 'as admin user' do
       before(:each) do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
       end
 
       it 'destroys the requested post' do
-        p = FactoryGirl.create(:post)
+        p = FactoryBot.create(:post)
         expect {
           delete :destroy, params: { id: p.to_param }
         }.to change{ Post.count }.by(-1)
       end
 
       it 'redirects to the posts list' do
-        p = FactoryGirl.create(:post)
+        p = FactoryBot.create(:post)
         delete :destroy, params: { id: p.to_param }
         expect(response).to redirect_to(posts_url)
       end
