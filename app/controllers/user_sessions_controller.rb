@@ -1,5 +1,5 @@
 class UserSessionsController < ApplicationController
-  before_filter :require_authentication, only: :destroy
+  before_action :require_authentication, only: :destroy
 
   def create
     auth = request.env['omniauth.auth']

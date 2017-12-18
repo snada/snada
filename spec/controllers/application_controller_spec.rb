@@ -4,10 +4,10 @@ RSpec.describe ApplicationController, type: :controller do
   describe 'GET #index' do
     it 'assigns last 3 posts as @posts' do
       posts = [
-        FactoryGirl.create(:post),
-        FactoryGirl.create(:post),
-        FactoryGirl.create(:post),
-        FactoryGirl.create(:post)
+        FactoryBot.create(:post),
+        FactoryBot.create(:post),
+        FactoryBot.create(:post),
+        FactoryBot.create(:post)
       ].reverse
 
       get :index, params: {}
@@ -17,7 +17,7 @@ RSpec.describe ApplicationController, type: :controller do
 
   describe 'GET #about' do
     it 'assigns the first user as @snada' do
-      FactoryGirl.create(:user)
+      FactoryBot.create(:user)
 
       get :about, params: {}
       expect(assigns(:snada)).to eq(User.first)

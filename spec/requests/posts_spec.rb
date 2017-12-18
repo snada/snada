@@ -17,7 +17,7 @@ RSpec.describe "Posts", type: :request do
 
     context "as normal user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         get posts_path
         expect(response).to have_http_status(200)
       end
@@ -25,7 +25,7 @@ RSpec.describe "Posts", type: :request do
 
     context "as admin user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
         get posts_path
         expect(response).to have_http_status(200)
       end
@@ -34,7 +34,7 @@ RSpec.describe "Posts", type: :request do
 
   describe "GET /post" do
     let(:valid_post) {
-      FactoryGirl.create(:post)
+      FactoryBot.create(:post)
     }
 
     context "as guest user" do
@@ -46,7 +46,7 @@ RSpec.describe "Posts", type: :request do
 
     context "as normal user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         get post_path valid_post
         expect(response).to have_http_status(200)
       end
@@ -54,7 +54,7 @@ RSpec.describe "Posts", type: :request do
 
     context "as admin user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
         get post_path valid_post
         expect(response).to have_http_status(200)
       end
@@ -75,7 +75,7 @@ RSpec.describe "Posts", type: :request do
 
     context "as normal user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         post posts_path post: valid_attributes
         expect(response).to have_http_status(:forbidden)
       end
@@ -83,7 +83,7 @@ RSpec.describe "Posts", type: :request do
 
     context "as admin user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
         post posts_path post: valid_attributes
         expect(response).to have_http_status(:redirect)
       end
@@ -92,7 +92,7 @@ RSpec.describe "Posts", type: :request do
 
   describe "EDIT /post" do
     let(:valid_post) {
-      FactoryGirl.create(:post)
+      FactoryBot.create(:post)
     }
 
     context "as guest user" do
@@ -104,7 +104,7 @@ RSpec.describe "Posts", type: :request do
 
     context "as normal user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         get edit_post_path valid_post
         expect(response).to have_http_status(:forbidden)
       end
@@ -112,7 +112,7 @@ RSpec.describe "Posts", type: :request do
 
     context "as admin user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
         get edit_post_path valid_post
         expect(response).to render_template(:edit)
       end
@@ -121,7 +121,7 @@ RSpec.describe "Posts", type: :request do
 
   describe "PUT /post" do
     let(:valid_post) {
-      FactoryGirl.create(:post)
+      FactoryBot.create(:post)
     }
 
     let(:valid_attributes) {
@@ -137,7 +137,7 @@ RSpec.describe "Posts", type: :request do
 
     context "as normal user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         patch post_path valid_post, { post: valid_attributes }
         expect(response).to have_http_status(:forbidden)
       end
@@ -145,7 +145,7 @@ RSpec.describe "Posts", type: :request do
 
     context "as admin user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
         patch post_path valid_post, { post: valid_attributes }
         expect(response).to have_http_status(:redirect)
       end
@@ -154,7 +154,7 @@ RSpec.describe "Posts", type: :request do
 
   describe "DELETE /post" do
     let(:valid_post) {
-      FactoryGirl.create(:post)
+      FactoryBot.create(:post)
     }
 
     context "as guest user" do
@@ -166,7 +166,7 @@ RSpec.describe "Posts", type: :request do
 
     context "as normal user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         delete post_path valid_post
         expect(response).to have_http_status(:forbidden)
       end
@@ -174,7 +174,7 @@ RSpec.describe "Posts", type: :request do
 
     context "as admin user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
         delete post_path valid_post
         expect(response).to have_http_status(:redirect)
       end
