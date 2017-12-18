@@ -18,20 +18,20 @@ RSpec.describe ContactsController, type: :controller do
     }
 
     it 'assigns a new contact as @contact' do
-      post :create, {contact: valid_attributes}
+      post :create, params: {contact: valid_attributes}
       expect(assigns(:contact)).to be_a(Contact)
     end
 
     context 'with valid params' do
       it 'should send a contact email' do
-        post :create, {contact: valid_attributes}
+        post :create, params: {contact: valid_attributes}
         expect(ActionMailer::Base.deliveries.empty?).to be false
       end
     end
 
     context 'with invalid params' do
       it 're-renders the new template' do
-        post :create, {contact: invalid_attributes}
+        post :create, params: {contact: invalid_attributes}
         expect(response).to render_template('new')
       end
     end

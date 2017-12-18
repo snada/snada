@@ -15,6 +15,9 @@ Launch this when necessary: `deploy:sitemap:refresh`
 
 ## Releases
 
+### 1.1.0
+- Rails 5!
+
 ### 1.0.16
 - Updating Rails and gems
 

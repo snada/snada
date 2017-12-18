@@ -3,6 +3,7 @@ class UserSessionsController < ApplicationController
 
   def create
     auth = request.env['omniauth.auth']
+
     if !auth
       render(file: File.join(Rails.root, 'public/403.html'), status: 403, layout: false) and return
     end

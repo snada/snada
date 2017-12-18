@@ -10,7 +10,7 @@ RSpec.describe ApplicationController, type: :controller do
         FactoryGirl.create(:post)
       ].reverse
 
-      get :index, {}
+      get :index, params: {}
       expect(assigns(:posts)).to eq(posts.first(3))
     end
   end
@@ -19,7 +19,7 @@ RSpec.describe ApplicationController, type: :controller do
     it 'assigns the first user as @snada' do
       FactoryGirl.create(:user)
 
-      get :about, {}
+      get :about, params: {}
       expect(assigns(:snada)).to eq(User.first)
     end
   end

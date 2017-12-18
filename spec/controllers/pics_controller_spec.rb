@@ -50,7 +50,7 @@ RSpec.describe PicsController, type: :controller do
   describe "GET #show" do
     context "as guest user" do
       it "should be forbidden" do
-        get :show, { id: valid_pic.to_param }
+        get :show, params: { id: valid_pic.to_param }
         expect(response).to have_http_status(:forbidden)
       end
     end
@@ -58,7 +58,7 @@ RSpec.describe PicsController, type: :controller do
     context "as a normal user" do
       it "should be forbidden" do
         UserSession.create(FactoryGirl.create(:github_user))
-        get :show, { id: valid_pic.to_param }
+        get :show, params: { id: valid_pic.to_param }
         expect(response).to have_http_status(:forbidden)
       end
     end
@@ -66,7 +66,7 @@ RSpec.describe PicsController, type: :controller do
     context "as admin user" do
       it "assigns the pic as @pic" do
         UserSession.create(FactoryGirl.create(:admin_user))
-        get :show, { id: valid_pic.to_param }
+        get :show, params: { id: valid_pic.to_param }
         expect(assigns(:pic)).to eq(valid_pic)
       end
     end
@@ -100,7 +100,7 @@ RSpec.describe PicsController, type: :controller do
   describe 'POST #create' do
     context 'as guest user' do
       it 'should be forbidden' do
-        post :create, { pic: valid_attributes }
+        post :create, params: { pic: valid_attributes }
         expect(response).to have_http_status(:forbidden)
       end
     end
@@ -108,7 +108,7 @@ RSpec.describe PicsController, type: :controller do
     context 'as normal user' do
       it 'should be forbidden' do
         UserSession.create(FactoryGirl.create(:github_user))
-        post :create, { pic: valid_attributes }
+        post :create, params: { pic: valid_attributes }
         expect(response).to have_http_status(:forbidden)
       end
     end
@@ -121,30 +121,30 @@ RSpec.describe PicsController, type: :controller do
       context 'with valid params' do
         it 'creates a new Pic' do
           expect {
-            post :create, { pic: valid_attributes }
+            post :create, params: { pic: valid_attributes }
           }.to change(Pic, :count).by(1)
         end
 
         it 'assigns a newly created pic as @pic' do
-          post :create, { pic: valid_attributes }
+          post :create, params: { pic: valid_attributes }
           expect(assigns(:pic)).to be_a(Pic)
           expect(assigns(:pic)).to be_persisted
         end
 
         it 'redirects to the created pic' do
-          post :create, { pic: valid_attributes }
+          post :create, params: { pic: valid_attributes }
           expect(response).to render_template('show')
         end
       end
 
       context 'with invalid params' do
         it 'assigns a newly created but unsaved pic as @pic' do
-          post :create, { pic: invalid_attributes }
+          post :create, params: { pic: invalid_attributes }
           expect(assigns(:pic)).to be_a_new(Pic)
         end
 
         it 're-renders the new template' do
-          post :create, { pic: invalid_attributes }
+          post :create, params: { pic: invalid_attributes }
           expect(response).to render_template('new')
         end
       end
@@ -154,7 +154,7 @@ RSpec.describe PicsController, type: :controller do
   describe 'PUT #update' do
     context 'as guest user' do
       it 'should be forbidden' do
-        patch :update, { id: valid_pic.id, pic: valid_attributes }
+        patch :update, params: { id: valid_pic.id, pic: valid_attributes }
         expect(response).to have_http_status(:forbidden)
       end
     end
@@ -162,7 +162,7 @@ RSpec.describe PicsController, type: :controller do
     context 'as normal user' do
       it 'should be forbidden' do
         UserSession.create(FactoryGirl.create(:github_user))
-        patch :update, { id: valid_pic.id, pic: valid_attributes }
+        patch :update, params: { id: valid_pic.id, pic: valid_attributes }
         expect(response).to have_http_status(:forbidden)
       end
     end
@@ -178,30 +178,30 @@ RSpec.describe PicsController, type: :controller do
         }
 
         it 'updates the requested pic' do
-          put :update, { id: valid_pic.to_param, pic: new_attributes }
+          put :update, params: { id: valid_pic.to_param, pic: new_attributes }
           valid_pic.reload
           expect(valid_pic.upload_file_name).to eq('another_cat.jpg')
         end
 
         it 'assigns the requested pic as @pic' do
-          put :update, { id: valid_pic.to_param, pic: new_attributes }
+          put :update, params: { id: valid_pic.to_param, pic: new_attributes }
           expect(assigns(:pic)).to eq(valid_pic)
         end
 
         it 're-renders the show template' do
-          put :update, { id: valid_pic.to_param, pic: new_attributes }
+          put :update, params: { id: valid_pic.to_param, pic: new_attributes }
           expect(response).to render_template('show')
         end
       end
 
       context 'with invalid params' do
         it 'assigns the pic as @pic' do
-          put :update, {id: valid_pic.to_param, pic: invalid_attributes}
+          put :update, params: {id: valid_pic.to_param, pic: invalid_attributes}
           expect(assigns(:pic)).to eq(valid_pic)
         end
 
         it 're-renders the edit template' do
-          put :update, {id: valid_pic.to_param, pic: invalid_attributes}
+          put :update, params: {id: valid_pic.to_param, pic: invalid_attributes}
           expect(response).to render_template('edit')
         end
       end
@@ -211,7 +211,7 @@ RSpec.describe PicsController, type: :controller do
   describe 'DELETE #destroy' do
     context 'as guest user' do
       it 'should be forbidden' do
-        delete :destroy, { id: valid_pic.id, pic: valid_attributes }
+        delete :destroy, params: { id: valid_pic.id, pic: valid_attributes }
         expect(response).to have_http_status(:forbidden)
       end
     end
@@ -219,7 +219,7 @@ RSpec.describe PicsController, type: :controller do
     context 'as normal user' do
       it 'should be forbidden' do
         UserSession.create(FactoryGirl.create(:github_user))
-        delete :destroy, { id: valid_pic.id, pic: valid_attributes }
+        delete :destroy, params: { id: valid_pic.id, pic: valid_attributes }
         expect(response).to have_http_status(:forbidden)
       end
     end
@@ -232,12 +232,12 @@ RSpec.describe PicsController, type: :controller do
       it 'destroys the requested pic' do
         p = valid_pic
         expect {
-          delete :destroy, { id: p.to_param }
+          delete :destroy, params: { id: p.to_param }
         }.to change{ Pic.count }.by(-1)
       end
 
       it 'redirects to the posts list' do
-        delete :destroy, { id: valid_pic.to_param }
+        delete :destroy, params: { id: valid_pic.to_param }
         expect(response).to redirect_to(pics_url)
       end
     end
