@@ -11,9 +11,12 @@ This is my personal website and blog, hosted [here](http://snada.it).
 
 ## Commands
 
-Launch this when necessary: `deploy:sitemap:refresh`
+Launch this when necessary: `sitemap:refresh`
 
 ## Releases
+
+### 1.1.1
+- Migrating to FactoryBot, minor deprecation warning fixed
 
 ### 1.1.0
 - Rails 5!

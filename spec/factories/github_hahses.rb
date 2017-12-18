@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :github_hash, class: OmniAuth::AuthHash do
     skip_create
 

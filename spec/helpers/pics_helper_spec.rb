@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe PicsHelper, type: :helper do
   describe 'pics_list' do
     it 'should generate a list of pics' do
-      FactoryGirl.create(:pic)
+      FactoryBot.create(:pic)
 
       expected = content_tag(:ul, class: 'category_list slide') do
         Pic.all.collect { |pic|

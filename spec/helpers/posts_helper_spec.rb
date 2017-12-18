@@ -4,7 +4,7 @@ RSpec.describe PostsHelper do
   describe 'post_header_categories_links' do
 
     it "should return an ordered list of links to categories with commas" do
-      post = FactoryGirl.create(:post, category_list: 'tdd, rspec, ruby')
+      post = FactoryBot.create(:post, category_list: 'tdd, rspec, ruby')
 
       expect(
         post_header_categories_links(post)
