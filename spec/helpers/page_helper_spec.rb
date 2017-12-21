@@ -12,13 +12,13 @@ RSpec.describe PageHelper do
     end
 
     it 'should generate a title with post title when post is defined' do
-      @post = FactoryGirl.create(:post)
+      @post = FactoryBot.create(:post)
       expect(page_title).to eq(@post.title + " | " + PageHelper::DEFAULT_TITLE)
     end
 
     it 'should give room to post over page if both defined' do
       @page_title = 'Contact'
-      @post = FactoryGirl.create(:post)
+      @post = FactoryBot.create(:post)
       expect(page_title).to eq(@post.title + " | " + PageHelper::DEFAULT_TITLE)
     end
   end
@@ -34,13 +34,13 @@ RSpec.describe PageHelper do
     end
 
     it 'should generate keywords with fixed ones and the post ones when post is defined' do
-      @post = FactoryGirl.create(:post)
+      @post = FactoryBot.create(:post)
       expect(page_keywords).to eq(PageHelper::FIXED_KEYWORDS + ", " + @post.keywords)
     end
 
     it 'should give room to post over page if both defined' do
       @page_keywords = "some, example, keys"
-      @post = FactoryGirl.create(:post)
+      @post = FactoryBot.create(:post)
       expect(page_keywords).to eq(PageHelper::FIXED_KEYWORDS + ", " + @post.keywords)
     end
   end
@@ -56,12 +56,12 @@ RSpec.describe PageHelper do
     end
 
     it 'should generate description with the post one when post is defined' do
-      @post = FactoryGirl.create(:post)
+      @post = FactoryBot.create(:post)
       expect(page_description).to eq(@post.description)
     end
 
     it 'should give room to post over page if both defined' do
-      @post = FactoryGirl.create(:post)
+      @post = FactoryBot.create(:post)
       @page_description = "This is a custom page description"
       expect(page_description).to eq(@post.description)
     end

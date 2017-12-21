@@ -1,8 +1,9 @@
 class UserSessionsController < ApplicationController
-  before_filter :require_authentication, only: :destroy
+  before_action :require_authentication, only: :destroy
 
   def create
     auth = request.env['omniauth.auth']
+
     if !auth
       render(file: File.join(Rails.root, 'public/403.html'), status: 403, layout: false) and return
     end

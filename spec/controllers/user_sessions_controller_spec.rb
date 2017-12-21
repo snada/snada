@@ -4,7 +4,7 @@ RSpec.describe UserSessionsController, type: :controller do
   setup :activate_authlogic
 
   context 'Github login flow' do
-    let(:user) { FactoryGirl.create(:github_user) }
+    let(:user) { FactoryBot.create(:github_user) }
 
     describe 'POST create' do
       it 'should return 403 forbidden if not going trough omniauth' do |variable|
@@ -13,27 +13,27 @@ RSpec.describe UserSessionsController, type: :controller do
       end
 
       it 'should login existing github users and redirect to root' do
-        controller.request.env['omniauth.auth'] = FactoryGirl.create(:github_hash, uid: user.github_uid, nickname: user.nickname)
-        post :create, provider: :github
+        controller.request.env['omniauth.auth'] = FactoryBot.create(:github_hash, uid: user.github_uid, nickname: user.nickname)
+        post :create, params: { provider: :github }
         expect(response).to redirect_to(root_url)
       end
 
       it 'should create non-existing github users, log them in and redirect to root' do
-        hash = FactoryGirl.create(:github_hash)
+        hash = FactoryBot.create(:github_hash)
         controller.request.env['omniauth.auth'] = hash
 
         expect(User.find_by(github_uid: hash.uid)).to be(nil)
-        post :create, provider: :github
+        post :create, params: { provider: :github }
         expect(response).to redirect_to(root_url)
         expect(User.find_by(github_uid: hash.uid)).not_to be(nil)
       end
 
       it 'should create non-existing github users as normal users' do
-        hash = FactoryGirl.create(:github_hash)
+        hash = FactoryBot.create(:github_hash)
         controller.request.env['omniauth.auth'] = hash
 
         expect(User.find_by(github_uid: hash.uid)).to be(nil)
-        post :create, provider: :github
+        post :create, params: { provider: :github }
         expect(response).to redirect_to(root_url)
         expect(User.find_by(github_uid: hash.uid).normal?).to be true
       end

@@ -2,11 +2,11 @@ require "rails_helper"
 
 RSpec.describe ContactNotifier, type: :mailer do
   let(:contact) {
-    FactoryGirl.create(:contact)
+    FactoryBot.create(:contact)
   }
 
   let(:contact_no_from) {
-    FactoryGirl.create(:contact_no_from)
+    FactoryBot.create(:contact_no_from)
   }
 
   describe "contact_mail" do

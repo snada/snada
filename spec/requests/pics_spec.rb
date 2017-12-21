@@ -17,7 +17,7 @@ RSpec.describe "Pics", type: :request do
 
     context "as normal user" do
       it "is not reachable" do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         get pics_path
         expect(response).to have_http_status(:forbidden)
       end
@@ -25,7 +25,7 @@ RSpec.describe "Pics", type: :request do
 
     context "as admin user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
         get pics_path
         expect(response).to have_http_status(:ok)
       end
@@ -34,7 +34,7 @@ RSpec.describe "Pics", type: :request do
 
   describe "GET /pic" do
     let(:pic) {
-      FactoryGirl.create(:pic)
+      FactoryBot.create(:pic)
     }
 
     context "as guest user" do
@@ -46,7 +46,7 @@ RSpec.describe "Pics", type: :request do
 
     context "as normal user" do
       it "is not reachable" do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         get pic_path pic
         expect(response).to have_http_status(:forbidden)
       end
@@ -54,7 +54,7 @@ RSpec.describe "Pics", type: :request do
 
     context "as admin user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
         get pic_path pic
         expect(response).to have_http_status(:ok)
       end
@@ -71,7 +71,7 @@ RSpec.describe "Pics", type: :request do
 
     context "as normal user" do
       it "is not reachable" do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         post pics_path(pic: { upload: '' })
         expect(response).to have_http_status(:forbidden)
       end
@@ -79,7 +79,7 @@ RSpec.describe "Pics", type: :request do
 
     context "as admin user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
         post pics_path(pic: { upload: '' })
         expect(response).to have_http_status(:ok)
       end
@@ -88,7 +88,7 @@ RSpec.describe "Pics", type: :request do
 
   describe "EDIT /pic" do
     let(:valid_pic) {
-      FactoryGirl.create(:pic)
+      FactoryBot.create(:pic)
     }
 
     context "as guest user" do
@@ -100,7 +100,7 @@ RSpec.describe "Pics", type: :request do
 
     context "as normal user" do
       it "is not reachable" do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         get edit_pic_path valid_pic
         expect(response).to have_http_status(:forbidden)
       end
@@ -108,7 +108,7 @@ RSpec.describe "Pics", type: :request do
 
     context "as admin user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
         get edit_pic_path valid_pic
         expect(response).to render_template(:edit)
       end
@@ -117,7 +117,7 @@ RSpec.describe "Pics", type: :request do
 
   describe "PUT /pic" do
     let(:valid_pic) {
-      FactoryGirl.create(:pic)
+      FactoryBot.create(:pic)
     }
 
     let(:valid_attributes) {
@@ -133,7 +133,7 @@ RSpec.describe "Pics", type: :request do
 
     context "as normal user" do
       it "is not reachable" do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         patch pic_path valid_pic, pic: valid_attributes
         expect(response).to have_http_status(:forbidden)
       end
@@ -141,8 +141,8 @@ RSpec.describe "Pics", type: :request do
 
     context "as admin user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:admin_user))
-        patch pic_path(valid_pic), pic: valid_attributes
+        UserSession.create(FactoryBot.create(:admin_user))
+        patch pic_path(valid_pic), params: { pic: valid_attributes }
         expect(response).to have_http_status(:ok)
       end
     end
@@ -150,7 +150,7 @@ RSpec.describe "Pics", type: :request do
 
   describe "DELETE /pic" do
     let(:valid_pic) {
-      FactoryGirl.create(:pic)
+      FactoryBot.create(:pic)
     }
 
     context "as guest user" do
@@ -162,7 +162,7 @@ RSpec.describe "Pics", type: :request do
 
     context "as normal user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:github_user))
+        UserSession.create(FactoryBot.create(:github_user))
         delete pic_path valid_pic
         expect(response).to have_http_status(:forbidden)
       end
@@ -170,7 +170,7 @@ RSpec.describe "Pics", type: :request do
 
     context "as admin user" do
       it "is reachable" do
-        UserSession.create(FactoryGirl.create(:admin_user))
+        UserSession.create(FactoryBot.create(:admin_user))
         delete pic_path valid_pic
         expect(response).to have_http_status(:redirect)
       end
