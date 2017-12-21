@@ -29,10 +29,10 @@ set :rvm_ruby_version, proc { `cat .ruby-version`.chomp }
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', '.env')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', '.env', 'public/sitemap.xml')
 
 # Default value for linked_dirs is []
-set :linked_dirs, fetch(:linked_dirs, []).push('public/system')
+set :linked_dirs, fetch(:linked_dirs, []).push('public/system', 'tmp/pids', 'tmp/sockets', 'tmp/cache', 'log')
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
