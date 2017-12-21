@@ -1,6 +1,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require_directory .
-//= require bootstrap
-//= require clipboard
+//= require dist/js/bootstrap
+//= require dist/clipboard
 //= require disqus_rails

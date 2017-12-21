@@ -10,10 +10,14 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 
+Rails.application.config.assets.paths << Rails.root.join('node_modules', 'bootstrap')
+Rails.application.config.assets.paths << Rails.root.join('node_modules', 'clipboard')
+Rails.application.config.assets.paths << Rails.root.join('node_modules', 'font-awesome')
+
 Rails.application.config.assets.precompile += %w( style.css global.css team-member.css animations.css blue.css bootstrap-theme.css hover.css syntax.css )
 Rails.application.config.assets.precompile += %w( initializers/clipboard.js)
 
-Rails.application.config.assets.precompile += %w( fontawesome/fonts/fontawesome-webfont.eot )
-Rails.application.config.assets.precompile += %w( fontawesome/fonts/fontawesome-webfont.woff )
-Rails.application.config.assets.precompile += %w( fontawesome/fonts/fontawesome-webfont.ttf )
-Rails.application.config.assets.precompile += %w( fontawesome/fonts/fontawesome-webfont.svg )
+Rails.application.config.assets.precompile += %w( fonts/fontawesome-webfont.eot )
+Rails.application.config.assets.precompile += %w( fonts/fontawesome-webfont.woff )
+Rails.application.config.assets.precompile += %w( fonts/fontawesome-webfont.ttf )
+Rails.application.config.assets.precompile += %w( fonts/fontawesome-webfont.svg )
