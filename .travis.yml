@@ -4,8 +4,7 @@ rvm:
 services:
 - postgresql
 before_script:
-- npm install -g bower
-- bower install
+- npm install
 - psql -c 'create database snada_test;' -U postgres
 - cp config/database.yml.travis config/database.yml
 - cp .env.example .env

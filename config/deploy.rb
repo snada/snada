@@ -39,7 +39,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('public/system', 'tmp/pids', 'tmp
 
 set :nvm_type, :user
 set :nvm_node, 'v4.4.7'
-set :nvm_map_bins, %w{node npm bower}
+set :nvm_map_bins, %w{node npm}
 #set :nvm_custom_path, "$HOME/.nvm/versions/node"
 
 # Default value for keep_releases is 5
@@ -50,7 +50,6 @@ namespace :deploy do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       within release_path do
         execute :npm, "install"
-        execute :bower, "install"
       end
     end
   end
