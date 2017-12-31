@@ -29,17 +29,17 @@ set :rvm_ruby_version, proc { `cat .ruby-version`.chomp }
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', '.env')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', '.env', 'public/sitemap.xml')
 
 # Default value for linked_dirs is []
-set :linked_dirs, fetch(:linked_dirs, []).push('public/system')
+set :linked_dirs, fetch(:linked_dirs, []).push('public/system', 'tmp/pids', 'tmp/sockets', 'tmp/cache', 'log')
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 set :nvm_type, :user
-set :nvm_node, 'v4.4.7'
-set :nvm_map_bins, %w{node npm bower}
+set :nvm_node, proc { `cat .nvmrc`.chomp }
+set :nvm_map_bins, %w{node npm}
 #set :nvm_custom_path, "$HOME/.nvm/versions/node"
 
 # Default value for keep_releases is 5
@@ -50,7 +50,6 @@ namespace :deploy do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       within release_path do
         execute :npm, "install"
-        execute :bower, "install"
       end
     end
   end
