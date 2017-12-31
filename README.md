@@ -15,6 +15,9 @@ Launch this when necessary: `sitemap:refresh`
 
 ## Releases
 
+### 1.2.2
+- Fixing code highlight style
+
 ### 1.2.1
 - Fixed nvm node version in deploy
 
