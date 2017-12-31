@@ -15,6 +15,9 @@ Launch this when necessary: `sitemap:refresh`
 
 ## Releases
 
+### 1.2.1
+- Fixed nvm node version in deploy
+
 ### 1.2.0
 - Ruby upgraded
 - Switched to Puma in prod
