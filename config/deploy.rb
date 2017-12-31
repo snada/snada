@@ -38,7 +38,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('public/system', 'tmp/pids', 'tmp
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 set :nvm_type, :user
-set :nvm_node, proc { `cat .nvmrc`.chomp }
+set :nvm_node, proc { 'v' + `cat .nvmrc`.chomp }
 set :nvm_map_bins, %w{node npm}
 #set :nvm_custom_path, "$HOME/.nvm/versions/node"
 
