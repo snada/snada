@@ -7,12 +7,12 @@ RSpec.describe SnadaRenderer do
   }
 
   context 'block_code' do
-    it 'should render a pygmentized version of a code block' do
+    it 'should render a rouge version of a code block' do
+      formatter = Rouge::Formatters::HTML.new
+      lexer = Rouge::Lexers::Ruby.new
       expect(
         renderer.block_code('code', 'ruby')
-      ).to eq(
-        Pygments.highlight('code', lexer: 'ruby')
-      )
+      ).to eq("<div class=\"highlight\"><pre class=\"highlight ruby\"><code>" + formatter.format(lexer.lex('code')) + "</code></pre></div>")
     end
   end
 

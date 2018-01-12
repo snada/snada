@@ -27,7 +27,8 @@ gem 'haml-rails'
 # Post rendering
 gem 'nokogiri'
 gem 'redcarpet'
-gem 'pygments.rb'
+
+gem 'rouge', '~> 3.1.0'
 
 # Post categories
 gem 'acts-as-taggable-on', '~> 4.0.0'

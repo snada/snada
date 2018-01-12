@@ -1,8 +1,8 @@
-class SnadaRenderer < Redcarpet::Render::HTML
-  def block_code(code, language)
-    Pygments.highlight(code, lexer: language)
-  end
+require 'rouge/plugins/redcarpet'
 
+class SnadaRenderer < Redcarpet::Render::HTML
+  include Rouge::Plugins::Redcarpet
+  
   def image(link, _title, content)
     doc = Nokogiri::HTML::DocumentFragment.parse('')
 
