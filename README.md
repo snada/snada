@@ -7,13 +7,16 @@ This is my personal website and blog, hosted [here](http://snada.it).
 - Ruby on Rails
 - HAML
 - Rspec
-- Redcarpet & pygments code styling
+- Redcarpet & Rouge code styling
 
 ## Commands
 
 Launch this when necessary: `sitemap:refresh`
 
 ## Releases
+
+### 1.3.0
+- Switching from Pygments to Rouge for code highlight
 
 ### 1.2.2
 - Fixing code highlight style
