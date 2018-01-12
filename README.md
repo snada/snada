@@ -15,6 +15,17 @@ Launch this when necessary: `sitemap:refresh`
 
 ## Releases
 
+### 1.2.2
+- Fixing code highlight style
+
+### 1.2.1
+- Fixed nvm node version in deploy
+
+### 1.2.0
+- Ruby upgraded
+- Switched to Puma in prod
+- Deprecated Bower, now using npm
+
 ### 1.1.1
 - Migrating to FactoryBot, minor deprecation warning fixed
 
