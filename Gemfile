@@ -37,7 +37,7 @@ gem 'acts-as-taggable-on', '~> 4.0.0'
 gem 'disqus_rails', '0.0.6'
 
 # Pics upload
-gem 'paperclip', '~> 5.1.0'
+gem 'paperclip', '~> 5.2.0'
 
 # Manage sensible information
 gem 'dotenv-rails'
