@@ -15,6 +15,10 @@ Launch this when necessary: `sitemap:refresh`
 
 ## Releases
 
+### 1.3.1
+- Updating gems
+- Fixed travis and codeclimate test coverage
+
 ### 1.3.0
 - Switching from Pygments to Rouge for code highlight
 
