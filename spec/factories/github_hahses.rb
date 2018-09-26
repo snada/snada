@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :github_hash, class: OmniAuth::AuthHash do
     skip_create
 
-    provider 'github'
+    provider { 'github' }
     uid { SecureRandom.random_number(1_000_000_000).to_s }
 
     transient do
