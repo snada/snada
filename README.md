@@ -15,6 +15,9 @@ Launch this when necessary: `sitemap:refresh`
 
 ## Releases
 
+### 1.3.2
+- Updating gems
+
 ### 1.3.1
 - Updating gems
 - Fixed travis and codeclimate test coverage
