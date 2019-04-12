@@ -15,6 +15,9 @@ Launch this when necessary: `sitemap:refresh`
 
 ## Releases
 
+### 1.3.5
+- Updating gems
+
 ### 1.3.4
 - Updating gems
 - Updating packages
