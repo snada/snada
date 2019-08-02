@@ -1,0 +1,10 @@
+%section#section2.page-title
+.text-center
+  -if @snada
+    =image_tag @snada.github_avatar, class: 'img-circle', width: 150, height: 150, alt: "stefano nada's avatar"
+.blog-divider
+%section#section3.blog
+  .content
+    .container
+      .row
+        =link_to 'Click here to login via Github', '/auth/github', method: :post, class: 'btn btn-2 btn-2c'
