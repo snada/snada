@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user_session, :current_user
 
+  before_action :require_anonymous, only: [:login]
+
   def index
     @posts = Post.first(3)
   end
@@ -15,10 +17,18 @@ class ApplicationController < ActionController::Base
     @snada = User.first
   end
 
+  def login
+    @snada = User.first
+  end
+
   protected
 
   rescue_from CanCan::AccessDenied do
     render_forbidden
+  end
+
+  def require_anonymous
+    render_forbidden if current_user
   end
 
   def require_authentication
