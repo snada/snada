@@ -15,6 +15,9 @@ Launch this when necessary: `sitemap:refresh`
 
 ## Releases
 
+### 1.4.0
+- Upgrading ruby version, updating gems, fixing omniauth vulnerability
+
 ### 1.3.5
 - Updating gems
 

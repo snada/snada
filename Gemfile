@@ -46,6 +46,9 @@ gem 'dotenv-rails'
 gem 'authlogic', '~> 3.6.1'
 gem 'omniauth-github', '~> 1.3.0'
 
+# Fixing vulnerabilities
+gem 'omniauth-rails_csrf_protection'
+
 # User roles
 gem 'cancancan', '~> 1.10'
 
@@ -84,6 +87,8 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'bundler-audit'
 end
 
 group :test do
