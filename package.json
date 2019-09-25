@@ -1,29 +1,60 @@
 {
-  "name": "snada",
+  "name": "example-node-server",
   "version": "1.0.0",
-  "description": "Stefano Nada's personal blog",
-  "main": "index.js",
-  "dependencies": {
-    "bootstrap": "^3.4.1",
-    "clipboard": "^1.7.1",
-    "font-awesome": "^4.7.0"
-  },
-  "devDependencies": {},
+  "description": "Example Node Server w/ Babel",
+  "main": "src/index.jsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "eslint": "eslint .",
+    "build": "webpack",
+    "build:watch": "webpack -w",
+    "start": "nf start",
+    "test": "yarn build && jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/snada/snada.git"
-  },
-  "keywords": [
-    "snada",
-    "blog"
-  ],
-  "author": "snada",
+  "author": "Stefano Nada <stefano.nada@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/snada/snada/issues"
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.4.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-import-graphql": "^2.7.0",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "foreman": "^3.0.1",
+    "jest": "^24.9.0",
+    "nodemon": "^1.17.5",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
   },
-  "homepage": "https://github.com/snada/snada#readme"
+  "dependencies": {
+    "@apollo/react-common": "^3.1.0",
+    "@apollo/react-hooks": "^3.1.0",
+    "@apollo/react-ssr": "^3.1.0",
+    "apollo-boost": "^0.4.4",
+    "apollo-cache-inmemory": "^1.6.3",
+    "apollo-client": "^2.6.4",
+    "apollo-link": "^1.2.13",
+    "apollo-link-schema": "^1.2.4",
+    "config": "^3.2.2",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.4",
+    "graphql-tag": "^2.10.1",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
+    "react-router-dom": "^5.0.1",
+    "sequelize": "^5.18.4",
+    "sequelize-cli": "^5.5.1",
+    "showdown": "^1.9.0"
+  }
 }
